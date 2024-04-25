@@ -1,0 +1,345 @@
+\documentclass[
+  12pt, % Tamaho da fonte
+  openright, % Capítulos começam em página ímpar
+  twoside, % Impressão em frente e verso
+  a4paper, % Tamanho do papel
+  english, % Idioma adicional para hifenização
+  french, % Idioma adicional para hifenização
+  spanish, % Idioma adicional para hifenização
+  brazil % O último idioma é o principal do documento
+]{abntex2}
+
+%
+% Pacotes
+%
+\usepackage{lmodern} % Usa a fonte Latin Modern
+\usepackage[T1]{fontenc} % Seleção de códigos de fonte
+\usepackage[utf8]{inputenc}	% Codificação do documento
+\usepackage{indentfirst} % Indenta o primeiro parágrafo de cada seção
+\usepackage{color} % Controle das cores
+\usepackage{graphicx} % Inclusão de gráficos
+\usepackage{microtype} % Para melhorias de justificação
+\usepackage{pdfpages} % Para inclusão de arquivos PDF
+
+%
+% Pacotes de citações
+%
+\usepackage[brazilian,hyperpageref]{backref} % Páginas com as citações
+\usepackage[alf]{abntex2cite}	% Citações no padrão ABNT
+
+%
+% Configurações de pacotes
+%
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+\renewcommand{\backref}{}
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1
+		Nenhuma citação no texto.
+	\or
+		Citado na página #2.
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi
+}
+
+%
+% Informações de dados para a capa e folha de rosto
+%
+\titulo{Projeto Integrador de Engenharia 1}
+\autor{Grupo 01 (T01)}
+\local{Brasília, DF}
+\data{2024, v0.2.0}
+\instituicao{Universidade de Brasília \par Faculdade do Gama}
+\tipotrabalho{Relatório técnico}
+% O preâmbulo deve conter o tipo do trabalho, o objetivo e o nome da instituição
+\preambulo{
+  Trabalho submetido à disciplina de Projeto Integrador de Engenharia 1 da
+  Universidade de Brasília, ministrada pelo professor Diogo Garcia.
+}
+\orientador{Diogo Garcia}
+
+%
+% Configurações de aparência do PDF final
+%
+\definecolor{blue}{RGB}{41,5,195} % Cor azul para os links
+
+% Informações do PDF
+\makeatletter
+\hypersetup{
+  pdftitle={\@title},
+  pdfauthor={\@author},
+  pdfsubject={\imprimirpreambulo},
+  pdfcreator={LaTeX with abnTeX2},
+  pdfkeywords={abnt}{latex}{abntex}{projeto integrador de engenharia 1},
+  colorlinks=true, % false: links em caixas; true: links coloridos
+  linkcolor=blue, % Cor dos links internos
+  citecolor=blue, % Cor dos links de citação
+  filecolor=magenta, % Cor dos links para arquivos
+  urlcolor=blue,
+  bookmarksdepth=4
+}
+\makeatother
+
+% Posiciona figuras e tabelas no topo da página quando adicionadas sozinhas
+% em um página em branco. Ver https://github.com/abntex/abntex2/issues/170
+\makeatletter
+\setlength{\@fptop}{5pt} % Set distance from top of page to first float
+\makeatother
+
+% Possibilita criação de Quadros e Lista de quadros.
+% Ver https://github.com/abntex/abntex2/issues/176
+\newcommand{\quadroname}{Quadro}
+\newcommand{\listofquadrosname}{Lista de quadros}
+
+\newfloat[chapter]{quadro}{loq}{\quadroname}
+\newlistof{listofquadros}{loq}{\listofquadrosname}
+\newlistentry{quadro}{loq}{0}
+
+% configurações para atender às regras da ABNT
+\setfloatadjustment{quadro}{\centering}
+\counterwithout{quadro}{chapter}
+\renewcommand{\cftquadroname}{\quadroname\space} 
+\renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
+
+% Ver https://github.com/abntex/abntex2/issues/176
+\setfloatlocations{quadro}{hbtp}
+
+%
+% Espaçamentos entre linhas e parágrafos 
+%
+\setlength{\parindent}{1.3cm}
+\setlength{\parskip}{0.2cm}
+
+%
+% Compila o índice
+%
+\makeindex
+
+%
+% Início do documento
+%
+\begin{document}
+
+\selectlanguage{brazil}
+\frenchspacing 
+
+%
+% Elementos pré-textuais
+%
+\pretextual
+
+%
+% Capa
+%
+\imprimircapa
+
+%
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+%
+\imprimirfolhaderosto*
+
+%
+% Inserir a ficha catalográfica
+%
+\begin{fichacatalografica}
+	\sffamily
+	\vspace*{\fill} % Posição vertical
+	\begin{center} % Minipage centralizado
+	\fbox{\begin{minipage}[c][8cm]{13.5cm} % Largura
+	\small
+	\imprimirautor
+	
+	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
+	\imprimirlocal, \imprimirdata-
+	
+	\hspace{0.5cm} \thelastpage p. : il. (algumas color.) ; 30 cm.\\
+	
+	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+	
+	\hspace{0.5cm}
+	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
+	\imprimirdata.}\\
+	
+	\hspace{0.5cm}
+		1. Projeto Integrador de Engenharia 1.
+    2. Faculdade UnB Gama
+		I. Diogo Garcia.
+		II. Universidade de Brasília
+	\end{minipage}}
+	\end{center}
+\end{fichacatalografica}
+
+%
+% Inserir folha de aprovação
+%
+
+% Isto é um exemplo de Folha de aprovação, elemento obrigatório da NBR
+% 14724/2011 (seção 4.2.1.3). Você pode utilizar este modelo até a aprovação
+% do trabalho. Após isso, substitua todo o conteúdo deste arquivo por uma
+% imagem da página assinada pela banca com o comando abaixo:
+%
+% \begin{folhadeaprovacao}
+%   \includepdf{folhadeaprovacao_final.pdf}
+% \end{folhadeaprovacao}
+%
+\begin{folhadeaprovacao}
+  \begin{center}
+    {\ABNTEXchapterfont\large\imprimirautor}
+
+    \vspace*{\fill}\vspace*{\fill}
+    \begin{center}
+      \ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+    \end{center}
+    \vspace*{\fill}
+    
+    \hspace{.45\textwidth}
+    \begin{minipage}{.5\textwidth}
+        \imprimirpreambulo
+    \end{minipage}%
+    \vspace*{\fill}
+   \end{center}
+        
+   Trabalho aprovado. \imprimirlocal, 24 de abril de 2024:
+
+   \assinatura{\textbf{\imprimirorientador} \\ Orientador} 
+   \assinatura{\textbf{Rafael Rodrigues} \\ Coorientador}
+   \assinatura{\textbf{Jungpyo Lee} \\ Coorientador}
+   \assinatura{\textbf{Juliana Petrocchi} \\ Coorientador}
+   \assinatura{\textbf{Ricardo Ajax} \\ Coorientador}
+      
+   \begin{center}
+    \vspace*{0.5cm}
+    {\large\imprimirlocal}
+    \par
+    {\large\imprimirdata}
+    \vspace*{1cm}
+  \end{center}
+\end{folhadeaprovacao}
+
+%
+% Dedicatória
+%
+\begin{dedicatoria}
+  \vspace*{\fill}
+  \centering
+  \noindent
+  \textit{
+    Dedicamos este trabalho aos nossos orientadores, que durante o semestre nos
+    proporcionaram a melhor experiência para escrever um trabalho de qualidade.
+  } \vspace*{\fill}
+\end{dedicatoria}
+
+%
+% Agradecimentos
+%
+\begin{agradecimentos}
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In blandit ligula nec
+  viverra euismod. Suspendisse quis ullamcorper dui, quis tincidunt augue. In
+  euismod posuere bibendum. Aliquam erat volutpat. Mauris eu urna maximus,
+  hendrerit diam in, egestas risus. Nunc eu sapien vitae velit imperdiet
+  fermentum eget ut velit. Interdum et malesuada fames ac ante ipsum primis in
+  faucibus. Maecenas scelerisque dignissim ante in mollis.
+\end{agradecimentos}
+
+%
+% Resumo
+%
+
+% Ajusta o espaçamento dos parágrafos do resumo
+\setlength{\absparsep}{18pt}
+\begin{resumo}
+  O seguidor de linha é uma categoria de robôs autônomos geralmente semelhantes
+  a carros de corrida cujo objetivo é realizar um percurso no menor tempo
+  possível. O carrinho seguidor de linha descrito nesse projeto vai um pouco
+  além, além de ser capaz de realizar três percursos aleatórios no menor tempo
+  possível, o carrinho precisa levar em si um ovo, que deve permanecer intacto
+  ao final do percurso. Para isso, o projeto irá utilizar uma combinação de
+  sensores, motores, algoritmos computacionais (incluindo inteligência
+  artificial) e um hardwares de forma que o robô não saia da linha a ser
+  disposta no chão e possa também calcular sua velocidade, distância percorrida
+  e tempo de conclusão do percurso.
+
+ \textbf{Palavras-chave}: Carrinho seguidor de linha. Engenharia.
+\end{resumo}
+
+%
+% Inserir lista de ilustrações
+%
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+
+%
+% Inserir lista de quadros
+%
+\pdfbookmark[0]{\listofquadrosname}{loq}
+\listofquadros*
+\cleardoublepage
+
+%
+% inserir lista de abreviaturas e siglas
+%
+\begin{siglas}
+  \item[DIY] Do It Yourself (Faça Você Mesmo)
+  \item[ANATEL] Agência Nacional de Telecomunicações
+  \item[LGPD] Lei Geral de Proteção de Dados
+\end{siglas}
+
+%
+% Inserir lista de símbolos
+%
+\begin{simbolos}
+  \item[$ \Lambda $] Lambda
+\end{simbolos}
+
+%
+% Inserir o sumário
+%
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+%
+% Elementos textuais
+%
+\textual
+
+%
+% Introdução
+%
+\chapter{Introdução}
+
+Os projetos de robôs seguidores de linha são uma ótima forma de introduzir tanto
+grupos de estudantes ou entusiastas interessados em projetos DIY ao mundo da
+engenharia, isto pois este é um projeto relativamente simples e que consegue
+combinar diversos conceitos de engenharia, automação e programação. Além desses
+conceitos, quando feito em grupo, o projeto tem a capacidade de ajudar no
+desenvolvimento pessoal dos integrantes em áreas como trabalho em equipe,
+resolução de problemas e também instiga o espírito competitivo dos integrantes.
+Falando sobre espírito esportivo, atualmente existem diversas competições
+estudantis tanto nacionais quanto internacionais onde são realizadas provas que
+testam a capacidade autônoma do robô em paralelo com a capacidade do mesmo
+realizar a prova no menor tempo possível. Mas essa não é a única aplicação desse
+tipo de projeto, ele também possui um grande potencial de aplicações no mundo
+real, onde os mesmos conceitos podem ser encontrados em robôs autônomos que são
+utilizados em linhas de produção de grandes indústrias.
+
+Uma vez que os robôs têm, frequentemente, um propósito de competição, a diretriz
+que o projeto deve seguir varia da competição ou propósito final. No Brasil, não
+existem quaisquer proibições sobre pequenos robôs seguidores de linha, as
+possíveis legislações que podem abranger esse robô variam de acordo com seu
+propósito, como se ele irá ou não ser comercializado \cite{Lei:8078:1990}, se
+ele utiliza ou não formas sem fio para sua partida (conformidades da ANATEL) e,
+se possuindo uma câmera, ela faz registro e armazenamento das gravações (Lei
+Geral de Proteção de Dados - Lei nº 13.709/2018). Por fim, é responsabilidade
+dos construtores do robô não infringir leis como a Lei de Propriedade
+Intelectual (Lei nº 9.279/1996) e respeitar a privacidade e os direitos
+pessoais.
+
+% 
+% Referências bibliográficas
+%
+\bibliography{refs}
+
+\end{document}
