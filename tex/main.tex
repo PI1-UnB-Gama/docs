@@ -43,6 +43,52 @@
 }
 \orientador{Diogo Garcia}
 
+% Informações do PDF
+\makeatletter
+\hypersetup{
+  pdftitle={\@title},
+  pdfauthor={\@author},
+  pdfsubject={\imprimirpreambulo},
+  pdfcreator={LaTeX with abnTeX2},
+  pdfkeywords={abnt}{latex}{abntex}{projeto integrador de engenharia 1},
+  colorlinks=true, % false: links em caixas; true: links coloridos
+  linkcolor=blue, % Cor dos links internos
+  citecolor=blue, % Cor dos links de citação
+  filecolor=magenta, % Cor dos links para arquivos
+  urlcolor=blue,
+  bookmarksdepth=4
+}
+\makeatother
+
+%
+% Configurações de aparência do PDF final
+%
+\definecolor{blue}{RGB}{41,5,195} % Cor azul para os links
+
+% Posiciona figuras e tabelas no topo da página quando adicionadas sozinhas
+% em um página em branco. Ver https://github.com/abntex/abntex2/issues/170
+\makeatletter
+\setlength{\@fptop}{5pt}
+\makeatother
+
+% Possibilita criação de Quadros e Lista de quadros.
+% Ver https://github.com/abntex/abntex2/issues/176
+\newcommand{\quadroname}{Quadro}
+\newcommand{\listofquadrosname}{Lista de quadros}
+
+\newfloat[chapter]{quadro}{loq}{\quadroname}
+\newlistof{listofquadros}{loq}{\listofquadrosname}
+\newlistentry{quadro}{loq}{0}
+
+% configurações para atender às regras da ABNT
+\setfloatadjustment{quadro}{\centering}
+\counterwithout{quadro}{chapter}
+\renewcommand{\cftquadroname}{\quadroname\space}
+\renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
+
+% Ver https://github.com/abntex/abntex2/issues/176
+\setfloatlocations{quadro}{hbtp}
+
 %
 % Início do documento
 %
@@ -140,7 +186,22 @@
   disposta no chão e possa também calcular sua velocidade, distância percorrida
   e tempo de conclusão do percurso.
 
- \textbf{Palavras-chave}: Carrinho seguidor de linha. Engenharia.
+  \textbf{Palavras-chave}: Carrinho seguidor de linha. Engenharia. Projeto
+    Integrador de Engenharia 1.
 \end{resumo}
+
+%
+% Inserir lista de ilustrações
+%
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+
+%
+% Inserir lista de quadros
+%
+\pdfbookmark[0]{\listofquadrosname}{loq}
+\listofquadros*
+\cleardoublepage
 
 \end{document}
