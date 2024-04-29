@@ -119,6 +119,11 @@
 \frenchspacing
 
 %
+% Elementos pré-textuais
+%
+\pretextual
+
+%
 % Capa
 %
 \imprimircapa
@@ -128,6 +133,10 @@
 % (o * indica que haverá a ficha bibliográfica)
 %
 \imprimirfolhaderosto*
+
+%
+% TODO: Inserir ficha catalográfica
+%
 
 %
 % Inserir folha de aprovação
@@ -190,6 +199,10 @@
 \end{dedicatoria}
 
 %
+% TODO: Agradecimentos
+%
+
+%
 % Resumo
 %
 
@@ -226,6 +239,13 @@
 \cleardoublepage
 
 %
+% Inserir lista de tabelas
+%
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+
+%
 % inserir lista de abreviaturas e siglas
 %
 \begin{siglas}
@@ -240,5 +260,36 @@
 \begin{simbolos}
   \item[$ \Lambda $] Lambda (maiúsculo)
 \end{simbolos}
+
+%
+% Inserir sumário
+%
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+\textual
+
+\chapter{Introdução}
+
+Os projetos de robôs seguidores de linha são uma ótima forma de introduzir tanto
+grupos de estudantes ou entusiastas interessados em projetos DIY ao mundo da
+engenharia, isto pois este é um projeto relativamente simples e que consegue
+combinar diversos conceitos de engenharia, automação e programação. Além desses
+conceitos, quando feito em grupo, o projeto tem a capacidade de ajudar no
+desenvolvimento pessoal dos integrantes em áreas como trabalho em equipe,
+resolução de problemas e também instiga o espírito competitivo dos integrantes.
+Falando sobre espírito esportivo, atualmente existem diversas competições
+estudantis tanto nacionais quanto internacionais onde são realizadas provas que
+testam a capacidade autônoma do robô em paralelo com a capacidade do mesmo
+realizar a prova no menor tempo possível. Mas essa não é a única aplicação desse
+tipo de projeto, ele também possui um grande potencial de aplicações no mundo
+real, onde os mesmos conceitos podem ser encontrados em robôs autônomos que são
+utilizados em linhas de produção de grandes indústrias.
+
+%
+% Elementos pós-textuais
+%
+\postextual
 
 \end{document}
