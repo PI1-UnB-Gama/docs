@@ -1,0 +1,56 @@
+@startwbs
+* Seguidor de linha
+
+** Estrutura
+*** Material
+**** Estrutura
+**** Fixação
+*** Dimencionamento
+**** Circuito eletrônico
+**** Motores
+**** Baterias
+**** Ovo
+**** Sensores
+**** Roda
+*** CAD
+*** Testes
+**** Estrutura
+**** Mecânica
+
+** Hardware
+*** Controle dos motores
+**** Arduino
+**** Ponte H
+**** Fonte de alimentação
+**** Motores
+*** Alimentação
+**** Baterias
+*** Processamento de dados
+**** Arduino
+**** Sensores
+**** Módulo Wi-Fi
+**** Módulo de cartão SD
+*** Telemetria
+**** Controle
+**** Velocidade
+**** Autonomia do robô
+
+** Software
+*** Documentação
+*** Programação
+**** Controle
+**** Velocidade
+**** Autonomia do robô
+*** Testes
+**** Controle
+**** Velocidade
+**** Autonomia do robô
+*** Recebimento de dados
+**** Módulo Wi-Fi
+
+** Energia
+*** Levantamento de dados
+*** Análise energética de cada componente
+*** Análise energética do sistema
+*** Testes
+@endwbs
