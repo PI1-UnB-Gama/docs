@@ -1,56 +1,51 @@
 @startwbs
 * Seguidor de linha
 
-** Estrutura
-*** Material
-**** Estrutura
-**** Fixação
-*** Dimencionamento
-**** Circuito eletrônico
-**** Motores
-**** Baterias
-**** Ovo
-**** Sensores
-**** Roda
-*** CAD
-*** Testes
-**** Estrutura
-**** Mecânica
+** Gestão de projeto
+*** Gerenciamento de escopo
+**** Coleta de requisitos
+**** Definição de escopo
+**** Criação da EAP
+*** Gerenciamento de tempo
+**** Definição de atividades
+**** Definição de cronograma
+*** Gerenciamento de custos
+**** Estimativa de custos
+**** Orçamentação
 
-** Hardware
-*** Controle dos motores
-**** Arduino
-**** Ponte H
-**** Fonte de alimentação
-**** Motores
-*** Alimentação
-**** Baterias
-*** Processamento de dados
-**** Arduino
-**** Sensores
-**** Módulo Wi-Fi
-**** Módulo de cartão SD
-*** Telemetria
-**** Controle
-**** Velocidade
-**** Autonomia do robô
+** Planejamento
+*** Definição de objetivos
+**** Definição de metas
+**** Definição de entregáveis
+**** Definição de prazos
+**** Definição de requisitos
+*** Definição de riscos
+**** Análise de riscos
+**** Plano de mitigação
+*** Definição de estrutura
+**** Descrição de hardware
+**** Descrição de software
+**** CAD
 
-** Software
-*** Documentação
+** Desenvolvimento
+*** Estruturação
+**** Montagem dos circuitos eletrônicos
+**** Montagem dos componentes mecânicos
+**** Armazenamento de energia
 *** Programação
-**** Controle
-**** Velocidade
-**** Autonomia do robô
-*** Testes
-**** Controle
-**** Velocidade
-**** Autonomia do robô
-*** Recebimento de dados
-**** Módulo Wi-Fi
+**** Desenvolvimento dos algoritmos
+**** Transmissão de dados de telemetria
 
-** Energia
-*** Levantamento de dados
-*** Análise energética de cada componente
-*** Análise energética do sistema
-*** Testes
+** Testes
+*** Testes de componentes
+**** Testes dos sensores
+**** Testes dos motores
+*** Testes de integração
+**** Testes de comunicação
+**** Testes de movimentação
+*** Testes de desempenho
+**** Testes de velocidade
+**** Testes de precisão
+*** Testes de software
+**** Testes de algoritmos
 @endwbs
