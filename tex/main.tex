@@ -134,9 +134,36 @@
 %
 \imprimirfolhaderosto*
 
-%
-% TODO: Inserir ficha catalográfica
-%
+\begin{fichacatalografica}
+	\sffamily
+	\vspace*{\fill}
+	\begin{center}
+    \fbox{
+      \begin{minipage}[c][8cm]{13.5cm}
+        \small
+        \imprimirautor
+        %Sobrenome, Nome do autor
+
+        \hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
+        \imprimirlocal, \imprimirdata-
+
+        \hspace{0.5cm} \thelastpage p. : il. (algumas color.) ; 30 cm.\\
+
+        \hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+
+        \hspace{0.5cm}
+        \parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
+        \imprimirdata.}\\
+
+        \hspace{0.5cm}
+          1. Projeto Integrador de Engenharia 1.
+          2. Faculdade UnB Gama.
+          I. Professor Diogo Garcia.
+          II. Universidade de Brasília.
+      \end{minipage}
+    }
+	\end{center}
+\end{fichacatalografica}
 
 %
 % Inserir folha de aprovação
