@@ -20,6 +20,9 @@
 \usepackage{graphicx}
 \usepackage{microtype}
 \usepackage{pdfpages}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{xltabular}
 
 %
 % Pacotes de citações
@@ -51,7 +54,6 @@
 \data{2024, v0.2.0}
 \instituicao{Universidade de Brasília \par Faculdade do Gama}
 \tipotrabalho{Relatório técnico}
-% O preâmbulo deve conter o tipo do trabalho, o objetivo e o nome da instituição
 \preambulo{
   Trabalho submetido à disciplina de Projeto Integrador de Engenharia 1 da
   Universidade de Brasília, ministrada pelo professor Diogo Garcia.
@@ -66,10 +68,10 @@
   pdfsubject={\imprimirpreambulo},
   pdfcreator={LaTeX with abnTeX2},
   pdfkeywords={abnt}{latex}{abntex}{projeto integrador de engenharia 1},
-  colorlinks=true, % false: links em caixas; true: links coloridos
-  linkcolor=blue, % Cor dos links internos
-  citecolor=blue, % Cor dos links de citação
-  filecolor=magenta, % Cor dos links para arquivos
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  filecolor=magenta,
   urlcolor=blue,
   bookmarksdepth=4
 }
@@ -288,6 +290,7 @@
 \input{texts/02_termo_de_abertura.tex}
 \input{texts/09_equipe_de_trabalho.tex}
 \input{texts/10_projeto_conceitual_do_produto.tex}
+\input{texts/14_cronograma_do_projeto.tex}
 
 %
 % Elementos pós-textuais
