@@ -1,0 +1,70 @@
+@startuml states
+partition "Seguidor de linha" {
+  start
+  :Liga;
+  note right
+    O seguidor de linha é ligado manualmente
+    através de uma chave de liga/desliga.
+  end note
+  :Inicializa o sistema;
+  note left
+    Este sistema é responsável por inicializar
+    o seguidor de linha, preparando-o para
+    a busca de linhas e a coleta de dados para
+    visualização através da interface gráfica.
+    ====
+    Esta etapa também envia uma requisição HTTP
+    para o software, informando que o seguidor
+    de linha irá realizar um novo percurso.
+  end note
+  repeat
+    :Procura linha;
+  repeat while (Encontrou linha?) is (Não)
+  -> Sim;
+  :Percorre linha;
+  note right
+    O seguidor de linha percorre a linha
+    encontrada de forma autônoma, ajustando
+    sua trajetória, velocidade e direção
+    conforme necessário.
+  end note
+  :Coleta dados;
+  note left
+    Durante o percurso, o seguidor de linha
+    coleta dados sobre a linha percorrida,
+    como a vetor direcional, a velocidade
+    e aceleração instantâneas e consumo
+    energético, e envia uma requisição HTTP
+    para o software para que este possa
+    processar e visualizar os dados.
+  end note
+  :Termina percurso;
+  note right
+    Ao final do percurso, o seguidor de linha
+    envia uma requisição HTTP para o software
+    informando que o percurso foi finalizado.
+  end note
+  stop
+}
+
+partition "Software" {
+  start
+  :Recebe dados;
+  :Trata dados;
+  :Calcula dados;
+  :Seleciona percurso;
+  :Apresenta dados;
+  split
+    :Trajetória percorrida;
+  split again
+    :Velocidade instantânea;
+  split again
+    :Aceleração instantânea;
+  split again
+    :Tempo de percurso;
+  split again
+    :Consumo energético;
+  end split
+  stop
+}
+@enduml
